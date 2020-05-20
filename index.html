@@ -51,9 +51,13 @@
     <section id='abstract'>
         <p><strong>TODO</strong>This document describes the Rich Skill Descriptor class and how they should be published.</p>
     </section>
+
+
+<!-- TODO: determine the standards model and include a status section
     <section id='sotd'>
         <p>This document is draft of a potential specification. It has no official standing of any kind and does not represent the support or consensus of any standards organization.</p>
     </section>
+-->
 
     <section class='informative'>
         <h2>Introduction</h2>
@@ -65,25 +69,99 @@
         <table class="propertyList">
             <thead>
                 <tr>
-                    <th>Field</th>
                     <th>RSD Property</th>
+                    <th>Field</th>
+                    <th>Type</th>
                     <th>Description</th>
-                    <th>CTDL-ASN term</th>
+                    <th>CTDL-ASN mapping</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Skill</td>
-                    <td>skill</td>
-                    <td>The human readable name of the skill</td>
+                    <td>id</td>
+                    <td>ID</td>
+                    <td>URI</td>
+                    <td>Canonical URL that uniquely identifies the skill</td>
+                    <td>identifier</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>Skill Name</td>
+                    <td>String</td>
+                    <td>Short name or label for the skill</td>
+                    <td>competencyLabel</td>
+                </tr>
+                <tr>
+                    <td>skillStatement</td>
+                    <td>Skill Statement</td>
+                    <td>String</td>
+                    <td>Skills description written in standard syntax</td>
                     <td>competencyText</td>
                 </tr>
                 <tr>
-                    <td>Skill Family</td>
                     <td>skillFamily</td>
+                    <td>Skill Family</td>
+                    <td>String</td>
                     <td>The textual label identifying the category of the competency as designated by the promulgating body.</td>
                     <td>competencyCategory</td>
                 </tr>
+
+                <tr>
+                    <td>author</td>
+                    <td>Author</td>
+                    <td>URI</td>
+                    <td>A person or organization chiefly responsible for the intellectual or artistic content of this skill</td>
+                    <td>author</td>
+                </tr>
+
+                <tr>
+                    <td>frameworks</td>
+                    <td>Framework(s)</td>
+                    <td>Array[String]</td>
+                    <td>Align to a skill defined in another framework</td>
+                    <td>alignment</td>
+                </tr>
+
+                <tr>
+                    <td>industryGroups</td>
+                    <td>Industry Major Groups</td>
+                    <td>Array[String]</td>
+                    <td>SOC code of the applicable industry group</td>
+                    <td>occupationType</td>
+                </tr>
+
+                <tr>
+                    <td>industry</td>
+                    <td>Industry</td>
+                    <td>String</td>
+                    <td>SOC code of the applicable industry</td>
+                    <td>industryType</td>
+                </tr>
+
+                <tr>
+                    <td>jobFunctions</td>
+                    <td>Job Function(s)</td>
+                    <td>Array[String]</td>
+                    <td>SOC codes of the applicabile job functions</td>
+                    <td>occupationType</td>
+                </tr>
+
+                <tr>
+                    <td>jobRoles</td>
+                    <td>Job Role(s)</td>
+                    <td>Array[String]</td>
+                    <td>SOC codes of applicable job roles</td>
+                    <td>occupationType</td>
+                </tr>
+
+                <tr>
+                    <td>occupations</td>
+                    <td>Occupation(s)</td>
+                    <td>Array[String]</td>
+                    <td>SOC codes of the applicable occupations</td>
+                    <td>occupationType</td>
+                </tr>
+
             </tbody>
         </table>
     </section>
