@@ -6,7 +6,7 @@
     <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove' async></script>
     <script class='remove'>
     var respecConfig = {
-        specStatus: "ED",
+        specStatus: "unofficial",
         editors: [
             {
                 name: "Concentric Sky",
@@ -18,15 +18,14 @@
             }
         ],
         github: "https://github.com/concentricsky/rsd-respec",
-        additionalCopyrightHolders: "Concentric Sky",
-
+        license: 'w3c-software'
     };
     </script>
 
     <style>
-        table.propertyList { 
-            border: none; 
-            border-collapse: collapse; 
+        table.propertyList {
+            border: none;
+            border-collapse: collapse;
         }
         table.propertyList thead {
             background: #ccc;
@@ -34,12 +33,12 @@
         table.propertyList thead th {
             padding: 0.1em 0.4em;
         }
-        table.propertyList tbody td { 
-            border-left: 1px solid #eee; 
+        table.propertyList tbody td {
+            border-left: 1px solid #eee;
             padding: 0.2em;
         }
-        table.propertyList tbody td:last-child { 
-            border-right: 1px solid #eee; 
+        table.propertyList tbody td:last-child {
+            border-right: 1px solid #eee;
         }
         table.propertyList tbody tr:nth-child(even) {
             background-color: #f2f2f2;
@@ -48,19 +47,33 @@
     </style>
 </head>
 <body>
+    <p class="copyright">
+      Copyright &copy; the contributors to the Rich Skill Descriptor Data Model. Pending confirmation by authors,
+      this document will be published under a Creative Commons Attribution 4.0 (CC-BY) License or published through
+      an appropriate standards body.
+    </p>
     <section id='abstract'>
-        <p><strong>TODO</strong>This document describes the Rich Skill Descriptor class and how they should be published.</p>
+      <p>
+        This document describes the Rich Skill Descriptor (RSD) class and how RSDs should be published for
+        compatibility with services that process machine readable representations of skills and competencies. Each
+        RSD is primarily identified by a canonical URL and consists of a skillStatement and supporting metadata to
+        identify alignment to other skills or job categories.
+      </p>
     </section>
 
-
-<!-- TODO: determine the standards model and include a status section
     <section id='sotd'>
-        <p>This document is draft of a potential specification. It has no official standing of any kind and does not represent the support or consensus of any standards organization.</p>
     </section>
--->
+
 
     <section class='informative'>
         <h2>Introduction</h2>
+        <p>
+          In order to create a ecosystem of recognition around skills, where Achievements, Pathways, and Learner
+          Records make machine-readable references to skills and allow systems to react to the skills learners hold,
+          it is important for implementers to use skills in common ways. RSDs build on <a href="https://credreg.net/ctdlasn/handbook">CTDL-ASN</a>
+          to enable skill definers to offer definitions that can be referenced from digital credentials (including those
+          that appear in learner records), pathways, and job profiles.
+        </p>
     </section>
 
     <section class='informative'>
@@ -81,7 +94,7 @@
                     <td>id</td>
                     <td>ID</td>
                     <td>URI</td>
-                    <td>Canonical URL that uniquely identifies the skill</td>
+                    <td>Canonical URL that uniquely identifies the skill, from which more information may be retrieved.</td>
                     <td>identifier</td>
                 </tr>
                 <tr>
@@ -166,7 +179,6 @@
         </table>
     </section>
 
-    <section id='conformance'>
-    </section>
+
 </body>
 </html>
