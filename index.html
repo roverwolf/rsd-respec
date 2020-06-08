@@ -77,6 +77,7 @@
     </section>
 
     <section class='informative'>
+
         <h2>RSD Data Model</h2>
 
         <table class="propertyList">
@@ -107,15 +108,15 @@
                 <tr>
                     <td>skillStatement</td>
                     <td>Skill Statement</td>
-                    <td>String</td>
+                    <td>SkillStatement</td>
                     <td>Skills description written in standard syntax</td>
                     <td>competencyText</td>
                 </tr>
                 <tr>
-                    <td>skillFamily</td>
-                    <td>Skill Family</td>
-                    <td>String</td>
-                    <td>The textual label identifying the category of the competency as designated by the promulgating body.</td>
+                    <td>keywords</td>
+                    <td>Keywords</td>
+                    <td>Array[String]</td>
+                    <td>List of keyword strings to enhance searchability.</td>
                     <td>competencyCategory</td>
                 </tr>
 
@@ -128,53 +129,79 @@
                 </tr>
 
                 <tr>
-                    <td>frameworks</td>
-                    <td>Framework(s)</td>
+                    <td>standards</td>
+                    <td>Professional Standards</td>
                     <td>Array[String]</td>
-                    <td>Align to a skill defined in another framework</td>
-                    <td>alignment</td>
+                    <td>Field for associating skills to professional standards (i.e., NICE Framework)</td>
+                    <td></td>
                 </tr>
 
                 <tr>
-                    <td>industryGroups</td>
-                    <td>Industry Major Groups</td>
+                    <td>certifications</td>
+                    <td>Certifications</td>
                     <td>Array[String]</td>
-                    <td>SOC code of the applicable industry group</td>
-                    <td>occupationType</td>
-                </tr>
-
-                <tr>
-                    <td>industry</td>
-                    <td>Industry</td>
-                    <td>String</td>
-                    <td>SOC code of the applicable industry</td>
-                    <td>industryType</td>
-                </tr>
-
-                <tr>
-                    <td>jobFunctions</td>
-                    <td>Job Function(s)</td>
-                    <td>Array[String]</td>
-                    <td>SOC codes of the applicabile job functions</td>
-                    <td>occupationType</td>
-                </tr>
-
-                <tr>
-                    <td>jobRoles</td>
-                    <td>Job Role(s)</td>
-                    <td>Array[String]</td>
-                    <td>SOC codes of applicable job roles</td>
-                    <td>occupationType</td>
+                    <td>Field for associating external certifications to RSDs</td>
+                    <td></td>
                 </tr>
 
                 <tr>
                     <td>occupations</td>
-                    <td>Occupation(s)</td>
-                    <td>Array[String]</td>
-                    <td>SOC codes of the applicable occupations</td>
-                    <td>occupationType</td>
+                    <td>Occuption Data Categories</td>
+                    <td>Array[JobCode]</td>
+                    <td>indicates skill alignment to releveant job roles/occupations aligned to an external categorization like BLS SOC or O*NET</td>
+                    <td></td>
                 </tr>
 
+                <tr>
+                    <td>employers</td>
+                    <td>Employers</td>
+                    <td>Array[String]</td>
+                    <td>Field for associating specific employers to RSDs</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>alignments</td>
+                    <td>Alignments</td>
+                    <td>Array[URI]</td>
+                    <td>align this RSD to an underlying unique identifiers (i.e.,Emsi; Burning Glass; LinkedIn; Workday)</td>
+                    <td></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <h3>Skill Statement</h3>
+        <p>The structured SkillStatement allows for skill statements to have a consistent syntax. The full skill statement will be made up by concatenating all parts together, e.g.: "{Subject} {Predicate} {Statement}".</p>
+        <table class="propertyList">
+            <thead>
+                <tr>
+                    <th>RSD Property</th>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>subject</td>
+                    <td>Subject</td>
+                    <td>String</td>
+                    <td>Who this skill applies to, e.g "Student"</td>
+                </tr>
+                <tr>
+                    <td>predicate</td>
+                    <td>Predicate</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>statement</td>
+                    <td>Skill Statement</td>
+                    <td>String</td>
+                    <td>The body of the skill statement</td>
+                </tr>
             </tbody>
         </table>
     </section>
