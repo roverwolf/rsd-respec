@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "ctdl": "https://purl.org/ctdl/terms/",
+    "ctdlasn": "https://purl.org/ctdlasn/terms/",
+
+    "RichSkillDescriptor": "ctdlasn:Competency",
+    "skillName": {"@id": "ctdlasn:competencyLabel"},
+    "skillStatement": {"@id": "ctdlasn:competencyText"},
+    "keywords": {"@id": "ctdlasn:competencyCategory"},
+    "author": {"@id": "ctdlasn:competencyLabel"},
+    "alignments": {"@id": "ctdlasn:majorAlignment", "@type": "@id"},
+    "certifications": {"@id": "ctdlasn:alignFrom", "@type": "@id"},
+    "occupations": {"@id": "ctdl:occupationType"},
+    "employers": {"@id": "ctdl:employmentOutcome"},
+    "skillEmbodied": {"@id": "ctdlasn:skillEmbodied"}
+  }
+}
