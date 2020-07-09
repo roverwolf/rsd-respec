@@ -84,8 +84,8 @@
             <thead>
                 <tr>
                     <th>RSD Property</th>
-                    <th>Field</th>
-                    <th>Type</th>
+                    <th>Field Name</th>
+                    <th>Data Type</th>
                     <th>Description</th>
                     <th>CTDL-ASN mapping</th>
                 </tr>
@@ -96,81 +96,86 @@
                     <td>ID</td>
                     <td>URI</td>
                     <td>Canonical URL that uniquely identifies the skill, from which more information may be retrieved.</td>
-                    <td>identifier</td>
+                    <td><code>@id</code></td>
                 </tr>
                 <tr>
-                    <td>name</td>
+                    <td>skillName</td>
                     <td>Skill Name</td>
                     <td>String</td>
                     <td>Short name or label for the skill</td>
-                    <td>competencyLabel</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyLabel">ctdlasn:competencyLabel</a></td>
                 </tr>
                 <tr>
                     <td>skillStatement</td>
                     <td>Skill Statement</td>
                     <td>SkillStatement</td>
                     <td>Skills description written in standard syntax</td>
-                    <td>competencyText</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyText">ctdlasn:competencyText</a></td>
                 </tr>
                 <tr>
                     <td>keywords</td>
                     <td>Keywords</td>
                     <td>Array[String]</td>
                     <td>List of keyword strings to enhance searchability.</td>
-                    <td>competencyCategory</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyCategory">ctdlasn:competencyCategory</a></td>
                 </tr>
-
                 <tr>
                     <td>author</td>
                     <td>Author</td>
                     <td>URI</td>
                     <td>A person or organization chiefly responsible for the intellectual or artistic content of this skill</td>
-                    <td>author</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
                 </tr>
-
                 <tr>
-                    <td>standards</td>
-                    <td>Professional Standards</td>
-                    <td>Array[String]</td>
-                    <td>Field for associating skills to professional standards (i.e., NICE Framework)</td>
-                    <td></td>
+                    <td>alignments</td>
+                    <td>Alignments</td>
+                    <td>Array[String:URI]</td>
+                    <td>indicates alignment or overlap of this RSD to an underlying unique identifiers of standards,
+                      skills, or competencies identified in other frameworks or data sources (i.e.,Emsi; Burning Glass;
+                      LinkedIn; Workday)</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/majorAlignment">ctdlasn:majorAlignment</a>
+                      <a href="#alignmentNote">*</a></td>
                 </tr>
-
                 <tr>
                     <td>certifications</td>
                     <td>Certifications</td>
-                    <td>Array[String]</td>
+                    <td>Array[String:URI]</td>
                     <td>Field for associating external certifications to RSDs</td>
-                    <td></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ctdlasn:alignFrom</a></td>
                 </tr>
-
                 <tr>
                     <td>occupations</td>
                     <td>Occuption Data Categories</td>
-                    <td>Array[JobCode]</td>
+                    <td>Array[String:JobCode]</td>
                     <td>indicates skill alignment to releveant job roles/occupations aligned to an external categorization like BLS SOC or O*NET</td>
-                    <td></td>
+                    <td><a href="https://purl.org/ctdl/terms/occupationType">ctdl:occupationType</td>
                 </tr>
-
                 <tr>
                     <td>employers</td>
                     <td>Employers</td>
                     <td>Array[String]</td>
-                    <td>Field for associating specific employers to RSDs</td>
-                    <td></td>
+                    <td>indicates support for a skill by specific employers who employ people who hold the skill</td>
+                    <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ctdl:employementOutcome</a></td>
                 </tr>
-
                 <tr>
-                    <td>alignments</td>
-                    <td>Alignments</td>
-                    <td>Array[URI]</td>
-                    <td>align this RSD to an underlying unique identifiers (i.e.,Emsi; Burning Glass; LinkedIn; Workday)</td>
-                    <td></td>
+                    <td>skillEmbodied</td>
+                    <td>Source Skill Embodied</td>
+                    <td>Array[String]</td>
+                    <td>indicates alignment of this skill to data sources or keywords that do not have canonical URIs</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ctdlasn:skillEmbodied</a></td>
                 </tr>
-
-
             </tbody>
         </table>
+
+        <p class="note" id="alignmentNote" title="Alignment types may vary">
+          Available alignment types include <a href="https://purl.org/ctdlasn/terms/majorAlignment">majorAlignment</a>,
+          <a href="https://purl.org/ctdlasn/terms/broadAlignment">broadAlignment</a>,
+          <a href="https://purl.org/ctdlasn/terms/exactAlignment">exactAlignment</a>,
+          <a href="https://purl.org/ctdlasn/terms/minorAlignment">minorAlignment</a>,
+          <a href="https://purl.org/ctdlasn/terms/narrowAlignment">narrowAlignment</a>,
+          and <a href="https://purl.org/ctdlasn/terms/prerequsiteAlignment">prerequisiteAlignment</a>.
+          The most simple or default recommendation is majorAlignment, which implies a close but not exact match.
+        </p>
 
         <h3>Skill Statement</h3>
         <p>The structured SkillStatement allows for skill statements to have a consistent syntax. The full skill statement will be made up by concatenating all parts together, e.g.: "{Subject} {Predicate} {Statement}".</p>
