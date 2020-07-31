@@ -5,16 +5,19 @@
     "ctdl": "https://purl.org/ctdl/terms/",
     "ctdlasn": "https://purl.org/ctdlasn/terms/",
 
+    "Collection": "ctdlasn:CompetencyFramework",
     "RichSkillDescriptor": "ctdlasn:Competency",
+
+    "alignments": {"@id": "ctdlasn:majorAlignment", "@type": "@id"},
+    "author": {"@id": "ctdlasn:author"},
+    "category": {"@id": "ctdlasn:competencyCategory"},
+    "certifications": {"@id": "ctdlasn:alignFrom", "@type": "@id"},
+    "containsSkill": {"@id": "ctdlasn:hasTopChild"},
+    "employers": {"@id": "ctdl:employmentOutcome"},
+    "keywords": {"@id": "ctdl:keyword"},
+    "occupations": {"@id": "ctdl:occupationType"},
+    "skillEmbodied": {"@id": "ctdlasn:skillEmbodied"},
     "skillName": {"@id": "ctdlasn:competencyLabel"},
     "skillStatement": {"@id": "ctdlasn:competencyText"},
-    "keywords": {"@id": "ctdl:keyword"},
-    "category": {"@id": "ctdlasn:competencyCategory"},
-    "author": {"@id": "ctdlasn:competencyLabel"},
-    "alignments": {"@id": "ctdlasn:majorAlignment", "@type": "@id"},
-    "certifications": {"@id": "ctdlasn:alignFrom", "@type": "@id"},
-    "occupations": {"@id": "ctdl:occupationType"},
-    "employers": {"@id": "ctdl:employmentOutcome"},
-    "skillEmbodied": {"@id": "ctdlasn:skillEmbodied"}
   }
 }

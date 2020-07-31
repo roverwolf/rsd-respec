@@ -78,7 +78,7 @@
 
     <section class='informative'>
 
-        <h2>RSD Data Model</h2>
+        <h2>Rich Skill Description</h2>
 
         <table class="propertyList">
             <thead>
@@ -108,7 +108,7 @@
                 <tr>
                     <td>skillStatement</td>
                     <td>Skill Statement</td>
-                    <td>SkillStatement</td>
+                    <td>String[<a href="#skill-statement">SkillStatement</a>]</td>
                     <td>Skills description written in standard syntax. Required</td>
                     <td><a href="https://purl.org/ctdlasn/terms/competencyText">ctdlasn:competencyText</a></td>
                 </tr>
@@ -185,34 +185,33 @@
         </p>
 
         <h3>Skill Statement</h3>
-        <p>The structured SkillStatement allows for skill statements to have a consistent syntax. The full skill statement will be made up by concatenating all parts together, e.g.: "{Subject} {Predicate} {Statement}".</p>
+        <p>A skill statement is a string that expresses information about who the skill applies to, the nature of the skill itself,
+          and the context in which it is applied, together, e.g.: "{Subject} {Predicate} {Context}". Consistent formatting assists
+          interoperability of RSDs across organizations and the development of common usage of RSDs valued in common.
+        </p>
+
+        <pre class="example nohighlight" title="Example Skill Statement">
+The learner saves copies of documents to their local machine.
+        </pre>
         <table class="propertyList">
             <thead>
                 <tr>
-                    <th>RSD Property</th>
-                    <th>Field</th>
-                    <th>Type</th>
+                    <th>Component</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>subject</td>
-                    <td>Subject</td>
-                    <td>String</td>
-                    <td>Who this skill applies to, e.g "Student"</td>
+                    <td>Who this skill applies to, e.g "the learner"</td>
                 </tr>
                 <tr>
                     <td>predicate</td>
-                    <td>Predicate</td>
-                    <td>String</td>
-                    <td></td>
+                    <td>The part of the statement that shows the action, knowledge, or ability at the core of the skill, e.g. "saves copies"</td>
                 </tr>
                 <tr>
-                    <td>statement</td>
-                    <td>Skill Statement</td>
-                    <td>String</td>
-                    <td>The body of the skill statement</td>
+                    <td>context</td>
+                    <td>Supporting descriptive language to clarify the context in which the skill applies, e.g. "to their local machine"</td>
                 </tr>
             </tbody>
         </table>
@@ -226,7 +225,7 @@
  "type": "RichSkillDescriptor",
  "author": "https://osmt.example.com/organization",
  "skillName": "Document Saving",
- "skillStatement": "The learner copies saves documents to their local machine.",
+ "skillStatement": "The learner saves copies of documents to their local machine.",
  "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
  "keywords": ["documents", "file operations", "computer basics"],
  "category": "Productivity Software",
@@ -235,6 +234,84 @@
        </pre>
     </section>
 
+    <section class='informative'>
+
+        <h2>Collection</h2>
+        <p>A collection of skills uses the
+
+        <table class="propertyList">
+            <thead>
+                <tr>
+                    <th>Collection Property</th>
+                    <th>Field Name</th>
+                    <th>Data Type</th>
+                    <th>Description</th>
+                    <th>CTDL-ASN mapping</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>ID</td>
+                    <td>URI</td>
+                    <td>Canonical URL that uniquely identifies the collection, from which more information may be retrieved.</td>
+                    <td><code>@id</code></td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>Name</td>
+                    <td>String</td>
+                    <td>A descriptive name for the collection</td>
+                    <td><code>@id</code></td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>Description</td>
+                    <td>URI</td>
+                    <td>Brief explanation of the scope and purpose of the collection.</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:description</a></td>
+                </tr>
+                <tr>
+                    <td>author</td>
+                    <td>Author</td>
+                    <td>URI</td>
+                    <td>A person or organization chiefly responsible for the content of this collection</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
+                </tr>
+                <tr>
+                    <td>containsSkill</td>
+                    <td>Contains Skill</td>
+                    <td>Array[RichSkillDescriptor]</td>
+                    <td>The skills contained within a collection. They are all at the top level with no hierarchy.</td>
+                    <td><a href="https://purl.org/ctdlasn/terms/hasTopChild">ctdlasn:hasTopChild</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example Collection</h3>
+        <p></p>
+        <pre class="example" title="A Colleciton with one skill.">
+{
+  "@context": "https://rsd.osmt.dev/context-v1.json",
+  "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
+  "type": "Collection",
+  "name": "Office Productivity Skills",
+  "description": "Skills for people who work in offices, generally at desks, on office chairs, often using computers.",
+  "author": "https://osmt.example.com/organization",
+  "containsSkills": [{
+     "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+     "type": "RichSkillDescriptor",
+     "author": "https://osmt.example.com/organization",
+     "skillName": "Document Saving",
+     "skillStatement": "The learner saves copies of documents to their local machine.",
+     "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
+     "keywords": ["documents", "file operations", "computer basics"],
+     "category": "Productivity Software",
+     "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+   }]
+}
+       </pre>
+    </section>
 
 </body>
 </html>
