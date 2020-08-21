@@ -313,5 +313,51 @@ The learner saves copies of documents to their local machine.
        </pre>
     </section>
 
+    <section class='informative'>
+      <h2>Use Cases</h2>
+      <p>
+        RSDs operate within an ecosystem of interoperable Skills, Credentials, Pathways, and Learner Records. There are some key use cases that bring
+        these ideas together to deliver impactful outcomes for learner-workers and organizations.
+      </p>
+
+      <h3>Align a Credential to RSDs</h3>
+        <p>
+          <em>
+            As an issuer of credentials that recognize the achievement of skills, I would like to include a reference to one or more RSDs that a
+            credential recognizes in the credential achievement description metadata.</em>
+        </p>
+        <p>
+          There are multiple approaches in different web standards communities for interoperable, portable, and verifiable digital credentials, but
+          a common pattern is an assertion awarded to an individual who the issuer asserts has achieved a particular learning goal, whether that
+          is a skill, learning objective, assessment, certification, or other criteria. In the below example, and Open Badges achievement definition
+          is a BadgeClass with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that the OB
+          vocabulary term <code>targetName</code> is used alongside the canonical RSD term <code>skillName</code>.
+        </p>
+        <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
+{
+  "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
+  "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
+  "type": "BadgeClass",
+  "name": "Document Savvy",
+  "description": "A basic skill of working on a computer is managing files. Recipients of this badge can save documents.",
+  "criteria": {"narrative": "Pass the document saving performance demonstration assessment."},
+  "issuer": "https://osmt.example.com/organization",
+  "alignment": [{
+     "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+     "type": "RichSkillDescriptor",
+     "author": "https://osmt.example.com/organization",
+     "skillName": "Document Saving",
+     "targetName": "Document Saving"
+     "skillStatement": "The learner saves copies of documents to their local machine.",
+     "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
+     "keywords": ["documents", "file operations", "computer basics"],
+     "category": "Productivity Software",
+     "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+   }]
+}
+       </pre>
+    </section>
+
+
 </body>
 </html>
