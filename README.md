@@ -3,6 +3,6 @@ Rich Skills Descriptor standards implementation recommendation documents are pro
 skills data using interoperable open standards. Use cases for interoperability are described, and options assembled
 from various existing and forthcoming web standards are provided.
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by].
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
-[![CC BY 4.0][cc-by-image]][cc-by]
+[![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/)
