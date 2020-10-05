@@ -81,13 +81,26 @@
           Records make machine-readable references to skills and allow systems to react to the skills learners hold,
           it is important for implementers to use skills in common ways. RSDs build on <a href="https://credreg.net/ctdlasn/handbook">CTDL-ASN</a>
           to enable skill definers to offer definitions that can be referenced from digital credentials (including those
-          that appear in learner records), pathways, and job profiles.
+          that appear in learner records), pathways, and job profiles. Partners in an interoperable skills ecosystem
+          may use CTDL/CTDL-ASN and/or other vocabularies and web standards to present skills descriptors and related
+          concepts. This document provides the Open Skills Network's technical guidance on approaches for publishing
+          and making use of this data, taking best advantage of available data standards.
+        </p>
+
+        <p>
+          Below are a listing of data models that may be useful in building interoperable systems that work with skills,
+          and use cases for specific procedures and capabilities desired for implementation. Examples and usage notes
+          provide guidance for how these concepts should be understood and used.
         </p>
     </section>
 
     <section class='informative'>
 
         <h2>Rich Skill Descriptor</h2>
+        <p>
+          The concept of a single skill or competency, expressed with rich metadata and alignment, is the foundation of
+          a skills vocabulary.
+        </p>
 
         <table class="propertyList">
             <thead>
@@ -96,7 +109,7 @@
                     <th>Field Name</th>
                     <th>Data Type</th>
                     <th>Description</th>
-                    <th>CTDL-ASN mapping</th>
+                    <th>Term IRI</th>
                 </tr>
             </thead>
             <tbody>
@@ -246,7 +259,9 @@ The learner saves copies of documents to their local machine.
     <section class='informative'>
 
         <h2>Collection</h2>
-        <p>A collection of skills uses the
+        <p>
+          A collection of skills bundles a number of skills together for a particular purpose or presentation.
+        </p>
 
         <table class="propertyList">
             <thead>
@@ -255,7 +270,7 @@ The learner saves copies of documents to their local machine.
                     <th>Field Name</th>
                     <th>Data Type</th>
                     <th>Description</th>
-                    <th>CTDL-ASN mapping</th>
+                    <th>Term IRI</th>
                 </tr>
             </thead>
             <tbody>
@@ -299,7 +314,7 @@ The learner saves copies of documents to their local machine.
 
         <h3>Example Collection</h3>
         <p></p>
-        <pre class="example" title="A Colleciton with one skill.">
+        <pre class="example" title="A Collection with one skill.">
 {
   "@context": "https://rsd.osmt.dev/context-v1.json",
   "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
@@ -325,23 +340,39 @@ The learner saves copies of documents to their local machine.
     <section class='informative'>
       <h2>Use Cases</h2>
       <p>
-        RSDs operate within an ecosystem of interoperable Skills, Credentials, Pathways, and Learner Records. There are some key use cases that bring
-        these ideas together to deliver impactful outcomes for learner-workers and organizations.
+        RSDs operate within an ecosystem of interoperable Skills, Credentials, Pathways, and Learner Records. There are
+        some key use cases that bring these ideas together to deliver impactful outcomes for learner-workers and
+        organizations.
       </p>
 
       <h3>Align a Credential to RSDs</h3>
         <p>
-          <em>
-            As an issuer of credentials that recognize the achievement of skills, I would like to include a reference to one or more RSDs that a
-            credential recognizes in the credential achievement description metadata.</em>
+          <em>As an issuer of credentials that recognize the achievement of skills, I would like to include a reference
+          to one or more RSDs that a credential recognizes in the credential achievement description metadata.</em>
         </p>
+
         <p>
-          There are multiple approaches in different web standards communities for interoperable, portable, and verifiable digital credentials, but
-          a common pattern is an assertion awarded to an individual who the issuer asserts has achieved a particular learning goal, whether that
-          is a skill, learning objective, assessment, certification, or other criteria. In the below example, and Open Badges achievement definition
-          is a BadgeClass with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that the OB
-          vocabulary term <code>targetName</code> is used alongside the canonical RSD term <code>skillName</code>.
+          There are many contexts in which alignment is useful. Higher ed institutions would like to describe the skills
+          recognized by a credential they issue. This serves the purpose of communicating to potential earners what
+          skills are taught in curriculum, as well as communicating to the potential employers of learners who gain this
+          credential what skills have been achieved. For most purposes of alignment, the achievement level of a skill is
+          binary, rather than on a sliding scale. That means there is a threshold level of attainment that is required
+          in order to award a credential that recognizes that skill, and this is the same basic level that is referenced
+          in other objects that align to a skill, such as a job position description. There may be more advanced use
+          cases for alignment of skills that indicate an achievement level of the skill that the credential recognizes
+          that will be described separately.
         </p>
+
+        <p>
+          There are multiple approaches in different web standards communities for interoperable, portable, and
+          verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
+          asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
+          certification, or other criteria. In the below example, and Open Badges achievement definition is a BadgeClass
+          with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
+          the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
+          <code>skillName</code>.
+        </p>
+
         <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
 {
   "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
@@ -365,8 +396,26 @@ The learner saves copies of documents to their local machine.
    }]
 }
        </pre>
+
+       <p>
+         There are additional vocabularies in use in the market to describe the concept of a Credential and the
+         underlying skills or competencies to which it aligns. The following relationships in other standards SHOULD be
+         considered the equivalent
+       </p>
+
+       <p>
+         Other open vocabularies that allow for the description of a Credential (as an example of the concept of a
+         Defined Achievement) use a so-called "three-object model" for alignment. In this model, a credential has one or
+         more alignments that each describe the target partially, but the alignment descriptor object is a separate
+         entity from the alignment target object. For the purposes of the interoperabiltiy of this alignment
+         information, some three-object approaches SHOULD be considered equivalent to the Open Badges
+         <code>alignment</code> usage in the example above.
+       </p>
+
+       <p class="note" title="TO DO">
+         Add list of specifications used by target markets and implementers that use a three-object model, and which
+
+       </p>
     </section>
-
-
 </body>
 </html>
