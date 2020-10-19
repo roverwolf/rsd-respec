@@ -92,8 +92,9 @@
           to enable skill definers to offer definitions that can be referenced from digital credentials (including those
           that appear in learner records), pathways, and job profiles. Partners in an interoperable skills ecosystem
           may use CTDL/CTDL-ASN and/or other vocabularies and web standards to present skills descriptors and related
-          concepts. This document provides the Open Skills Network's technical guidance on approaches for publishing
-          and making use of this data, taking best advantage of available data standards.
+          concepts. Terms from CTDL appear below with the prefix <code>ceterms</code> and terms from CTDL-ASN appear
+          with the prefix <code>ceasn</code>. This document provides the Open Skills Network's technical guidance on
+          approaches for publishing and making use of this data, taking best advantage of available data standards.
         </p>
 
         <p>
@@ -134,35 +135,35 @@
                     <td>Skill Name</td>
                     <td>String</td>
                     <td>Short name or label for the skill. Required</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyLabel">ctdlasn:competencyLabel</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyLabel">ceasn:competencyLabel</a></td>
                 </tr>
                 <tr>
                     <td>skillStatement</td>
                     <td>Skill Statement</td>
                     <td>String[<a href="#skill-statement">SkillStatement</a>]</td>
                     <td>Skills description written in standard syntax. Required</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyText">ctdlasn:competencyText</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyText">ceasn:competencyText</a></td>
                 </tr>
                 <tr>
                     <td>keywords</td>
                     <td>Keywords</td>
                     <td>Array[String]</td>
                     <td>List of keyword strings to enhance searchability.</td>
-                    <td><a href="https://purl.org/ctdl/terms/keyword">ctdl:keyword</a></td>
+                    <td><a href="https://purl.org/ctdl/terms/keyword">ceterms:keyword</a></td>
                 </tr>
                 <tr>
                     <td>category</td>
                     <td>Category</td>
                     <td>String</td>
                     <td>A category in which this RSD is filed, in the local vocabulary defined by the issuer</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyCategory">ctdlasn:competencyCategory</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/competencyCategory">ceasn:competencyCategory</a></td>
                 </tr>
                 <tr>
                     <td>author</td>
                     <td>Author</td>
                     <td>String</td>
                     <td>A person or organization chiefly responsible for the intellectual or artistic content of this skill</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ceasn:author</a></td>
                 </tr>
                 <tr>
                     <td>creator</td>
@@ -172,7 +173,7 @@
                       A person or organization primarily responsible for making this resource. This is the canonical
                       identifier of the source of the skill.
                     </td>
-                    <td><a href="https://purl.org/ctdlasn/terms/creator">ctdlasn:creator</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/creator">ceasn:creator</a></td>
                 </tr>
                 <tr>
                     <td>alignments</td>
@@ -181,7 +182,7 @@
                     <td>indicates alignment or overlap of this RSD to an underlying unique identifiers of standards,
                       skills, or competencies identified in other frameworks or data sources (i.e.,Emsi; Burning Glass;
                       LinkedIn; Workday)</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/majorAlignment">ctdlasn:majorAlignment</a>
+                    <td><a href="https://purl.org/ctdlasn/terms/majorAlignment">ceasn:majorAlignment</a>
                       <a href="#alignmentNote">*</a></td>
                 </tr>
                 <tr>
@@ -189,28 +190,28 @@
                     <td>Certifications</td>
                     <td>Array[String:URI]</td>
                     <td>Field for associating external certifications to RSDs</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ctdlasn:alignFrom</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ceasn:alignFrom</a></td>
                 </tr>
                 <tr>
                     <td>occupations</td>
                     <td>Occuption Data Categories</td>
                     <td>Array[String:JobCode]</td>
                     <td>indicates skill alignment to releveant job roles/occupations aligned to an external categorization like BLS SOC or O*NET</td>
-                    <td><a href="https://purl.org/ctdl/terms/occupationType">ctdl:occupationType</td>
+                    <td><a href="https://purl.org/ctdl/terms/occupationType">ceterms:occupationType</td>
                 </tr>
                 <tr>
                     <td>employers</td>
                     <td>Employers</td>
                     <td>Array[String]</td>
                     <td>indicates support for a skill by specific employers who employ people who hold the skill</td>
-                    <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ctdl:employmentOutcome</a></td>
+                    <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ceterms:employmentOutcome</a></td>
                 </tr>
                 <tr>
                     <td>skillEmbodied</td>
                     <td>Source Skill Embodied</td>
                     <td>Array[String]</td>
                     <td>indicates alignment of this skill to data sources for professional standards or keywords that do not have canonical URIs</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ctdlasn:skillEmbodied</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ceasn:skillEmbodied</a></td>
                 </tr>
             </tbody>
         </table>
@@ -312,21 +313,21 @@ The learner saves copies of documents to their local machine.
                     <td>Description</td>
                     <td>URI</td>
                     <td>Brief explanation of the scope and purpose of the collection.</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:description</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ceasn:description</a></td>
                 </tr>
                 <tr>
                     <td>author</td>
                     <td>Author</td>
                     <td>URI</td>
                     <td>A person or organization chiefly responsible for the content of this collection</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/author">ceasn:author</a></td>
                 </tr>
                 <tr>
                     <td>containsSkill</td>
                     <td>Contains Skill</td>
                     <td>Array[RichSkillDescriptor]</td>
                     <td>The skills contained within a collection. They are all at the top level with no hierarchy.</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/hasTopChild">ctdlasn:hasTopChild</a></td>
+                    <td><a href="https://purl.org/ctdlasn/terms/hasTopChild">ceasn:hasTopChild</a></td>
                 </tr>
             </tbody>
         </table>
