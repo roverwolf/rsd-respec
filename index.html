@@ -28,30 +28,12 @@
     };
     </script>
 
-    <style>
-        table.propertyList {
-            border: none;
-            border-collapse: collapse;
-        }
-        table.propertyList thead {
-            background: #ccc;
-        }
-        table.propertyList thead th {
-            padding: 0.1em 0.4em;
-        }
-        table.propertyList tbody td {
-            border-left: 1px solid #eee;
-            padding: 0.2em;
-        }
-        table.propertyList tbody td:last-child {
-            border-right: 1px solid #eee;
-        }
-        table.propertyList tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+    <script type="text/javascript" src="static/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="static/jquery-accessible-tabs.js"></script>
+    <link rel="stylesheet" href="static/custom.css" type="text/css" />
 
-    </style>
 </head>
+
 <body>
     <p class="copyright">
       Copyright &copy; the contributors to the Rich Skill Descriptor Data Model. This document is licened under a
@@ -105,179 +87,422 @@
 
     <section class='informative'>
 
-        <h2>Rich Skill Descriptor</h2>
+        <h2>Publish a Rich Skill Descriptor</h2>
+        <p>
+          <em>As an educational institution, I would like to publish a skill that is taught, assessed, and recognized
+            by the organization in machine-readable interoperable format so that it can be referenced in other resources
+            by the organization and employers</em>
+        </p>
+
         <p>
           The concept of a single skill or competency, expressed with rich metadata and alignment, is the foundation of
-          a skills vocabulary.
+          a skills vocabulary. Organizations or individuals in different roles in the skills ecosystem may find it
+          useful to publish a skill definition. That includes employers, individual educators, educational institutions,
+          industry consortia or professional associations, or collaborations between these different roles.
         </p>
 
-        <table class="propertyList">
-            <thead>
-                <tr>
-                    <th>RSD Property</th>
-                    <th>Field Name</th>
-                    <th>Data Type</th>
-                    <th>Description</th>
-                    <th>Term IRI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>id</td>
-                    <td>ID</td>
-                    <td>URI</td>
-                    <td>Canonical URL that uniquely identifies the skill, from which more information may be retrieved.</td>
-                    <td><code>@id</code></td>
-                </tr>
-                <tr>
-                    <td>skillName</td>
-                    <td>Skill Name</td>
-                    <td>String</td>
-                    <td>Short name or label for the skill. Required</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyLabel">ctdlasn:competencyLabel</a></td>
-                </tr>
-                <tr>
-                    <td>skillStatement</td>
-                    <td>Skill Statement</td>
-                    <td>String[<a href="#skill-statement">SkillStatement</a>]</td>
-                    <td>Skills description written in standard syntax. Required</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyText">ctdlasn:competencyText</a></td>
-                </tr>
-                <tr>
-                    <td>keywords</td>
-                    <td>Keywords</td>
-                    <td>Array[String]</td>
-                    <td>List of keyword strings to enhance searchability.</td>
-                    <td><a href="https://purl.org/ctdl/terms/keyword">ctdl:keyword</a></td>
-                </tr>
-                <tr>
-                    <td>category</td>
-                    <td>Category</td>
-                    <td>String</td>
-                    <td>A category in which this RSD is filed, in the local vocabulary defined by the issuer</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/competencyCategory">ctdlasn:competencyCategory</a></td>
-                </tr>
-                <tr>
-                    <td>author</td>
-                    <td>Author</td>
-                    <td>String</td>
-                    <td>A person or organization chiefly responsible for the intellectual or artistic content of this skill</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
-                </tr>
-                <tr>
-                    <td>creator</td>
-                    <td>Creator</td>
-                    <td>URI</td>
-                    <td>
-                      A person or organization primarily responsible for making this resource. This is the canonical
-                      identifier of the source of the skill.
-                    </td>
-                    <td><a href="https://purl.org/ctdlasn/terms/creator">ctdlasn:creator</a></td>
-                </tr>
-                <tr>
-                    <td>alignments</td>
-                    <td>Alignments</td>
-                    <td>Array[String:URI]</td>
-                    <td>indicates alignment or overlap of this RSD to an underlying unique identifiers of standards,
-                      skills, or competencies identified in other frameworks or data sources (i.e.,Emsi; Burning Glass;
-                      LinkedIn; Workday)</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/majorAlignment">ctdlasn:majorAlignment</a>
-                      <a href="#alignmentNote">*</a></td>
-                </tr>
-                <tr>
-                    <td>certifications</td>
-                    <td>Certifications</td>
-                    <td>Array[String:URI]</td>
-                    <td>Field for associating external certifications to RSDs</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ctdlasn:alignFrom</a></td>
-                </tr>
-                <tr>
-                    <td>occupations</td>
-                    <td>Occuption Data Categories</td>
-                    <td>Array[String:JobCode]</td>
-                    <td>indicates skill alignment to releveant job roles/occupations aligned to an external categorization like BLS SOC or O*NET</td>
-                    <td><a href="https://purl.org/ctdl/terms/occupationType">ctdl:occupationType</td>
-                </tr>
-                <tr>
-                    <td>employers</td>
-                    <td>Employers</td>
-                    <td>Array[String]</td>
-                    <td>indicates support for a skill by specific employers who employ people who hold the skill</td>
-                    <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ctdl:employmentOutcome</a></td>
-                </tr>
-                <tr>
-                    <td>skillEmbodied</td>
-                    <td>Source Skill Embodied</td>
-                    <td>Array[String]</td>
-                    <td>indicates alignment of this skill to data sources for professional standards or keywords that do not have canonical URIs</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ctdlasn:skillEmbodied</a></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p class="note" id="alignmentNote" title="Alignment types may vary">
-          Available alignment types include <a href="https://purl.org/ctdlasn/terms/majorAlignment">majorAlignment</a>,
-          <a href="https://purl.org/ctdlasn/terms/broadAlignment">broadAlignment</a>,
-          <a href="https://purl.org/ctdlasn/terms/exactAlignment">exactAlignment</a>,
-          <a href="https://purl.org/ctdlasn/terms/minorAlignment">minorAlignment</a>,
-          <a href="https://purl.org/ctdlasn/terms/narrowAlignment">narrowAlignment</a>,
-          and <a href="https://purl.org/ctdlasn/terms/prerequsiteAlignment">prerequisiteAlignment</a>.
-          The most simple or default recommendation is majorAlignment, which implies a close but not exact match.
+        <p>Some of these publishers may at times describe the concept of a skill using different terminology, such as
+          competency, learning outcome or standard, but what is shared between all of these models is the possibility
+          for each skill to be associated with a canonical URL where it is made available and the ability to retrieve
+          descriptive metadata that expresses the full meaning of the skill definition.
         </p>
 
-        <h3>Skill Statement</h3>
-        <p>A skill statement is a string that expresses information about who the skill applies to, the nature of the skill itself,
-          and the context in which it is applied, together, e.g.: "{Subject} {Predicate} {Context}". Consistent formatting assists
-          interoperability of RSDs across organizations and the development of common usage of RSDs valued in common.
-        </p>
+        <div class="js-tabs">
+          <ul class="js-tablist">
+           <li class="recipes-label"><span>Recipes:</span></li>
+           <li class="js-tablist__item">
+            <a href="#rsd_ctdl" id="label_rsd_ctdl" class="js-tablist__link override no-link-warnings">CTDL-ASN/CTDL</a>
+           </li>
+           <li class="js-tablist__item">
+            <a href="#rsd_caseld" id="label_rsd_caseld" class="js-tablist__link override no-link-warnings">CASE-LD</a>
+           </li>
+          </ul>
+         <div id="rsd_ctdl" class="js-tabcontent">
+           <h3 class="override informative notoc">Recipe: Publish a Rich Skill Descriptor with CTDL-ASN/CTDL</h3>
+           <p> CTDL-ASN and CTDL are published by Credential Engine. These vocabularies provide extensive attributes
+           with which to describe credentials, competencies or skills, organizations and other related concepts.
+           </p>
+           <table class="propertyList">
+               <thead>
+                   <tr>
+                       <th>RSD Property</th>
+                       <th>Field Name</th>
+                       <th>Data Type</th>
+                       <th>Description</th>
+                       <th>Term IRI</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td>id</td>
+                       <td>ID</td>
+                       <td>URI</td>
+                       <td>Canonical URL that uniquely identifies the skill, from which more information may be retrieved.</td>
+                       <td><code>@id</code></td>
+                   </tr>
+                   <tr>
+                       <td>skillName</td>
+                       <td>Skill Name</td>
+                       <td>String</td>
+                       <td>Short name or label for the skill.</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/competencyLabel">ctdlasn:competencyLabel</a></td>
+                   </tr>
+                   <tr>
+                       <td>skillStatement</td>
+                       <td>Skill Statement</td>
+                       <td>String[<a href="#skill-statement">SkillStatement</a>]</td>
+                       <td>Skills description written in standard syntax.</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/competencyText">ctdlasn:competencyText</a></td>
+                   </tr>
+                   <tr>
+                       <td>keywords</td>
+                       <td>Keywords</td>
+                       <td>Array[String]</td>
+                       <td>List of keyword strings to enhance searchability.</td>
+                       <td><a href="https://purl.org/ctdl/terms/keyword">ctdl:keyword</a></td>
+                   </tr>
+                   <tr>
+                       <td>category</td>
+                       <td>Category</td>
+                       <td>String</td>
+                       <td>A category in which this RSD is filed, in the local vocabulary defined by the issuer</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/competencyCategory">ctdlasn:competencyCategory</a></td>
+                   </tr>
+                   <tr>
+                       <td>author</td>
+                       <td>Author</td>
+                       <td>String</td>
+                       <td>A person or organization chiefly responsible for the intellectual or artistic content of this skill</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
+                   </tr>
+                   <tr>
+                       <td>creator</td>
+                       <td>Creator</td>
+                       <td>URI</td>
+                       <td>
+                         A person or organization primarily responsible for making this resource. This is the canonical
+                         identifier of the source of the skill.
+                       </td>
+                       <td><a href="https://purl.org/ctdlasn/terms/creator">ctdlasn:creator</a></td>
+                   </tr>
+                   <tr>
+                       <td>alignments</td>
+                       <td>Alignments</td>
+                       <td>Array[String:URI]</td>
+                       <td>indicates alignment or overlap of this RSD to an underlying unique identifiers of standards,
+                         skills, or competencies identified in other frameworks or data sources (i.e.,Emsi; Burning Glass;
+                         LinkedIn; Workday)</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/majorAlignment">ctdlasn:majorAlignment</a>
+                         <a href="#alignmentNote">*</a></td>
+                   </tr>
+                   <tr>
+                       <td>certifications</td>
+                       <td>Certifications</td>
+                       <td>Array[String:URI]</td>
+                       <td>Field for associating external certifications to RSDs</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ctdlasn:alignFrom</a></td>
+                   </tr>
+                   <tr>
+                       <td>occupations</td>
+                       <td>Occuption Data Categories</td>
+                       <td>Array[String:JobCode]</td>
+                       <td>indicates skill alignment to releveant job roles/occupations aligned to an external categorization like BLS SOC or O*NET</td>
+                       <td><a href="https://purl.org/ctdl/terms/occupationType">ctdl:occupationType</td>
+                   </tr>
+                   <tr>
+                       <td>employers</td>
+                       <td>Employers</td>
+                       <td>Array[String]</td>
+                       <td>indicates support for a skill by specific employers who employ people who hold the skill</td>
+                       <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ctdl:employmentOutcome</a></td>
+                   </tr>
+                   <tr>
+                       <td>skillEmbodied</td>
+                       <td>Source Skill Embodied</td>
+                       <td>Array[String]</td>
+                       <td>indicates alignment of this skill to data sources for professional standards or keywords that do not have canonical URIs</td>
+                       <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ctdlasn:skillEmbodied</a></td>
+                   </tr>
+               </tbody>
+           </table>
 
-        <pre class="example nohighlight" title="Example Skill Statement">
-The learner saves copies of documents to their local machine.
-        </pre>
-        <table class="propertyList">
-            <thead>
-                <tr>
-                    <th>Component</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>subject</td>
-                    <td>Who this skill applies to, e.g "the learner"</td>
-                </tr>
-                <tr>
-                    <td>predicate</td>
-                    <td>The part of the statement that shows the action, knowledge, or ability at the core of the skill, e.g. "saves copies"</td>
-                </tr>
-                <tr>
-                    <td>context</td>
-                    <td>Supporting descriptive language to clarify the context in which the skill applies, e.g. "to their local machine"</td>
-                </tr>
-            </tbody>
-        </table>
+           <p class="note" id="alignmentNote" title="Alignment types may vary">
+             Available alignment types include <a href="https://purl.org/ctdlasn/terms/majorAlignment">majorAlignment</a>,
+             <a href="https://purl.org/ctdlasn/terms/broadAlignment">broadAlignment</a>,
+             <a href="https://purl.org/ctdlasn/terms/exactAlignment">exactAlignment</a>,
+             <a href="https://purl.org/ctdlasn/terms/minorAlignment">minorAlignment</a>,
+             <a href="https://purl.org/ctdlasn/terms/narrowAlignment">narrowAlignment</a>,
+             and <a href="https://purl.org/ctdlasn/terms/prerequsiteAlignment">prerequisiteAlignment</a>.
+             The most simple or default recommendation is majorAlignment, which implies a close but not exact match.
+           </p>
 
-        <h3>Example RSD</h3>
-        <p></p>
-        <pre class="example" title="A RSD with basic alignment and occupation information">
+           <h3>Skill Statement</h3>
+           <p>A skill statement is a string that expresses information about who the skill applies to, the nature of the skill itself,
+             and the context in which it is applied, together, e.g.: "{Subject} {Predicate} {Context}". Consistent formatting assists
+             interoperability of RSDs across organizations and the development of common usage of RSDs valued in common.
+           </p>
+
+           <pre class="example nohighlight" title="Example Skill Statement">
+   The learner saves copies of documents to their local machine.
+           </pre>
+           <table class="propertyList">
+               <thead>
+                   <tr>
+                       <th>Component</th>
+                       <th>Description</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td>subject</td>
+                       <td>Who this skill applies to, e.g "the learner"</td>
+                   </tr>
+                   <tr>
+                       <td>predicate</td>
+                       <td>The part of the statement that shows the action, knowledge, or ability at the core of the skill, e.g. "saves copies"</td>
+                   </tr>
+                   <tr>
+                       <td>context</td>
+                       <td>Supporting descriptive language to clarify the context in which the skill applies, e.g. "to their local machine"</td>
+                   </tr>
+               </tbody>
+           </table>
+
+           <h3>Example RSD</h3>
+           <p></p>
+           <pre class="example" title="A RSD with basic alignment and occupation information">
+   {
+    "@context": "https://rsd.osmt.dev/context-v1.json",
+    "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+    "type": "RichSkillDescriptor",
+    "author": "https://osmt.example.com/organization",
+    "skillName": "Document Saving",
+    "skillStatement": "The learner saves copies of documents to their local machine.",
+    "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
+    "keywords": ["documents", "file operations", "computer basics"],
+    "category": "Productivity Software",
+    "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+   }
+          </pre>
+         </div>
+         <div id="rsd_caseld" class="js-tabcontent">
+           <h3>Recipe: Publish a Rich Skill Descriptor with CASE-LD</h3>
+           <p> CASE is a specification published by IMS Global that enables organizations to describe a competency or
+             skill framework. The "CASE-LD" <a href="https://www.imsglobal.org/spec/case/v1p0/jsonld/">JSON-LD binding
+             for the CASE service definition</a> enables CASE data to be published as JSON-LD for semantic web needs
+             without any significant modification to the JSON expressed by the various endpoints.
+           </p>
+
+           <p> In order to publish an RSD using CASE, implement the <a
+             href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfitem">CFItem endpoint</a> to publish a single item
+             and implement the <a href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfdocument">CFDocument
+             endpoint</a> to express authorship information across one or more RSDs. Terms below are defined in the <a
+             href="https://purl.imsglobal.org/spec/case/v1p0/context/imscasev1p0_context_v1p0.jsonld">CASE  JSON-LD
+             context</a>.
+           </p>
+
+          <table class="propertyList">
+              <thead>
+                  <tr>
+                      <th>RSD Property</th>
+                      <th>Field Name</th>
+                      <th>Data Type</th>
+                      <th>Description</th>
+                      <th>Term IRI</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>id</td>
+                      <td>ID</td>
+                      <td>URI</td>
+                      <td>Canonical URL that uniquely identifies the skill, from which more information may be retrieved.</td>
+                      <td><code>@id</code></td>
+                  </tr>
+                  <tr>
+                      <td>identifier</td>
+                      <td>Code</td>
+                      <td>String</td>
+                      <td>An identifying code, local to the RSD's publisher for this item.</td>
+                      <td><code>case:identifier</code></td>
+                  </tr>
+                  <tr>
+                      <td>lastChangeDateTime</td>
+                      <td>Code</td>
+                      <td>String</td>
+                      <td>A timestamp in ISO-8601 format, fully qualified with time zone indicator of the last point in time a change was reflected in this published object.</td>
+                      <td><code>case:lastChangeDateTime</code></td>
+                  </tr>
+                  <tr>
+                      <td>CFDocumentURI</td>
+                      <td>Framework</td>
+                      <td>LinkURI</td>
+                      <td>A link back to the Framework/Collection object, which describes the authorship of this RSD.</td>
+                      <td><code>case:CFDocumentURI</code></td>
+                  </tr>
+                  <tr>
+                      <td>educationLevel</td>
+                      <td>Education Level</td>
+                      <td>Array of Strings</td>
+                      <td>A list of education levels like <code>"03"</code> that are the level at which this RSD is expressed.</td>
+                      <td><code>case:educationLevel</code></td>
+                  </tr>
+                  <tr>
+                      <td>fullStatement</td>
+                      <td>Code</td>
+                      <td>String</td>
+                      <td>The full skill statement, expressing a learner's capability, knowledge, and/or experience.</td>
+                      <td><code>case:fullStatement</code></td>
+                  </tr>
+                  <tr>
+                      <td>abbreviatedStatement</td>
+                      <td>Code</td>
+                      <td>String</td>
+                      <td>A short label for the skill.</td>
+                      <td><code>case:abbreviatedStatement</code></td>
+                  </tr>
+                  <tr>
+                      <td>language</td>
+                      <td>Language</td>
+                      <td>String (Language Code)</td>
+                      <td>A language identifier code such as <code>en</code> or <code>es-mx</code> describing the language in which the RSD is published.</td>
+                      <td><code>case:abbreviatedStatement</code></td>
+                  </tr>
+                  <tr>
+                      <td>associationSet</td>
+                      <td>Associations (Alignments)</td>
+                      <td>Array of AssociationSets</td>
+                      <td>Associations (alignments) of this RSD to other entities</td>
+                      <td><code>case:associationSet</code></td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <h3>LinkURI Properties</h3>
+            <p>A LinkURI object is a CASE-LD concept that expresses a relationship between the present document and another document.
+            <table class="propertyList">
+                <thead>
+                    <tr>
+                        <th>LinkURI Property</th>
+                        <th>Field Name</th>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Term IRI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>type</td>
+                        <td>type</td>
+                        <td><code>LinkURI</code></td>
+                        <td>The exact string <code>LinkURI</code>, expressing that this link is a LinkURI</td>
+                        <td><code>@type</code></td>
+                    </tr>
+                    <tr>
+                        <td>targetId</td>
+                        <td>Target ID</td>
+                        <td>URI</td>
+                        <td>URI of the object that is the target of this link, such as a CFDocument that is the target of a CFDocumentURI link from a CFItem.</td>
+                        <td><code>case:targetId</code></td>
+                    </tr>
+                    <tr>
+                        <td>identifier</td>
+                        <td>Code</td>
+                        <td>String</td>
+                        <td>An identifying code, local to the RSD's publisher for this item.</td>
+                        <td><code>case:identifier</code></td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Title</td>
+                        <td>String</td>
+                        <td>The name of the linked entity.</td>
+                        <td><code>case:title</code></td>
+                    </tr>
+                </tbody>
+              </table>
+
+              <h3>AssociationLink Properties</h3>
+              <p>A LinkURI object is a CASE-LD concept that expresses a relationship between the present document and another document.
+              <table class="propertyList">
+                  <thead>
+                      <tr>
+                          <th>LinkURI Property</th>
+                          <th>Field Name</th>
+                          <th>Data Type</th>
+                          <th>Description</th>
+                          <th>Term IRI</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>type</td>
+                          <td>type</td>
+                          <td><code>AssociationLink</code></td>
+                          <td>The exact string <code>AssociationLink</code>, expressing that this link is an association/alignment.</td>
+                          <td><code>@type</code></td>
+                      </tr>
+                      <tr>
+                          <td>targetId</td>
+                          <td>Target ID</td>
+                          <td>URI</td>
+                          <td>URI of the object that is the target of this link, such as another CFItem.</td>
+                          <td><code>case:targetId</code></td>
+                      </tr>
+                      <tr>
+                          <td>identifier</td>
+                          <td>Code</td>
+                          <td>String</td>
+                          <td>An identifying code, local to the RSD's publisher for this item.</td>
+                          <td><code>case:identifier</code></td>
+                      </tr>
+                      <tr>
+                          <td>title</td>
+                          <td>Title</td>
+                          <td>String</td>
+                          <td>The name of the linked entity.</td>
+                          <td><code>case:title</code></td>
+                      </tr>
+                  </tbody>
+                </table>
+
+            <h3>Example RSD published using CASE-LD</h3>
+            <p></p>
+            <pre class="example" title="A RSD expressed in CASE-LD">
 {
- "@context": "https://rsd.osmt.dev/context-v1.json",
- "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
- "type": "RichSkillDescriptor",
- "author": "https://osmt.example.com/organization",
- "skillName": "Document Saving",
- "skillStatement": "The learner saves copies of documents to their local machine.",
- "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
- "keywords": ["documents", "file operations", "computer basics"],
- "category": "Productivity Software",
- "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+    "@context": "https://purl.imsglobal.org/spec/case/v1p0/context/imscasev1p0_context_v1p0.jsonld",
+    "type": "CFItem",
+    "id": "https://case.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+    "identifier": "9cd84455-2086-4f41-bcac-6d518beeb6ac",
+    "lastChangeDateTime": "2020-01-10T18:40:58+00:00",
+    "CFDocumentURI": {
+        "type": "LinkURI",
+        "title": "IMS CLR Demo Framework",
+        "identifier": "17927658-3246-11ea-97fb-0242c0a83003",
+        "targetId": "https://case.example.com/skills/framework1"
+    },
+    "abbreviatedStatement": "Document Saving",
+    "fullStatement": "The learner saves copies of documents to their local machine.",
+    "conceptKeywords": ["documents", "file operations", "computer basics"],
+    "language": "en",
+    "associationSet": [
+        {
+            "type": "AssociationLink",
+            "targetId": "https://skillsource.example.com/base-skills/simple-compuhacking",
+            "associationType": "isRelatedTo",
+            "title": "Simple Compuhacking"
+        }
+    ]
 }
-       </pre>
-    </section>
+           </pre>
 
+         </div> <!-- end .js-tabcontent -->
+       </div> <!-- end .js-tabs -->
+
+    </section>
     <section class='informative'>
 
-        <h2>Collection</h2>
+        <h2>Publish a Collection</h2>
         <p>
           A collection of skills bundles a number of skills together for a particular purpose or presentation.
         </p>
@@ -357,14 +582,7 @@ The learner saves copies of documents to their local machine.
     </section>
 
     <section class='informative'>
-      <h2>Use Cases</h2>
-      <p>
-        RSDs operate within an ecosystem of interoperable Skills, Credentials, Pathways, and Learner Records. There are
-        some key use cases that bring these ideas together to deliver impactful outcomes for learner-workers and
-        organizations.
-      </p>
-
-      <h3>Align a Credential to RSDs</h3>
+      <h2>Align a Credential to RSDs</h2>
         <p>
           <em>As an issuer of credentials that recognize the achievement of skills, I would like to include a reference
           to one or more RSDs that a credential recognizes in the credential achievement description metadata.</em>

@@ -1,0 +1,56 @@
+/* Property Listing Table tweaks */
+table.propertyList {
+    border: none;
+    border-collapse: collapse;
+}
+table.propertyList thead {
+    background: #ccc;
+}
+table.propertyList thead th {
+    padding: 0.1em 0.4em;
+}
+table.propertyList tbody td {
+    border-left: 1px solid #eee;
+    padding: 0.2em;
+}
+table.propertyList tbody td:last-child {
+    border-right: 1px solid #eee;
+}
+table.propertyList tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Tabs and Tab Content Panels */
+.js-tabs {
+
+}
+
+.js-tabs .js-tablist {
+  margin: 25px 0 0 0;
+  list-style: none;
+}
+
+.js-tablist__item, .recipes-label {
+  display:inline-block;
+}
+.js-tablist__item a, .recipes-label span {
+  padding: 0.5rem 1em;
+  margin: 0;
+  text-decoration: none;
+}
+.js-tablist__item a[aria-selected=true] {
+  border: 2px solid;
+  background: rgba(240,240,240, 0.5);
+  border-bottom: 0;
+  position: relative;
+  top: 2px;
+  text-decoration: none;
+}
+
+.js-tabcontent {
+  background-color: rgba(240,240,240, 0.5);
+  padding: 1em;
+  border: 0;
+}
+.js-tabcontent[aria-hidden=true] { display: none; }
