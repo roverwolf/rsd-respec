@@ -18,6 +18,6 @@
     "occupations": {"@id": "ctdl:occupationType"},
     "skillEmbodied": {"@id": "ctdlasn:skillEmbodied"},
     "skillName": {"@id": "ctdlasn:competencyLabel"},
-    "skillStatement": {"@id": "ctdlasn:competencyText"},
+    "skillStatement": {"@id": "ctdlasn:competencyText"}
   }
 }
