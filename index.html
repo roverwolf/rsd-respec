@@ -507,58 +507,70 @@
           A collection of skills bundles a number of skills together for a particular purpose or presentation.
         </p>
 
-        <table class="propertyList">
-            <thead>
-                <tr>
-                    <th>Collection Property</th>
-                    <th>Field Name</th>
-                    <th>Data Type</th>
-                    <th>Description</th>
-                    <th>Term IRI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>id</td>
-                    <td>ID</td>
-                    <td>URI</td>
-                    <td>Canonical URL that uniquely identifies the collection, from which more information may be retrieved.</td>
-                    <td><code>@id</code></td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>Name</td>
-                    <td>String</td>
-                    <td>A descriptive name for the collection</td>
-                    <td><code>@id</code></td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>Description</td>
-                    <td>URI</td>
-                    <td>Brief explanation of the scope and purpose of the collection.</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:description</a></td>
-                </tr>
-                <tr>
-                    <td>author</td>
-                    <td>Author</td>
-                    <td>URI</td>
-                    <td>A person or organization chiefly responsible for the content of this collection</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
-                </tr>
-                <tr>
-                    <td>containsSkill</td>
-                    <td>Contains Skill</td>
-                    <td>Array[RichSkillDescriptor]</td>
-                    <td>The skills contained within a collection. They are all at the top level with no hierarchy.</td>
-                    <td><a href="https://purl.org/ctdlasn/terms/hasTopChild">ctdlasn:hasTopChild</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="js-tabs">
+          <ul class="js-tablist">
+           <li class="recipes-label"><span>Recipes:</span></li>
+           <li class="js-tablist__item">
+            <a href="#collection_ctdl" id="label_collection_ctdl" class="js-tablist__link override no-link-warnings">CTDL-ASN/CTDL</a>
+           </li>
+          </ul>
+         <div id="collection_ctdl" class="js-tabcontent">
+           <h3 class="override informative notoc">Recipe: Publish a Collection with CTDL-ASN/CTDL</h3>
+           <p> CTDL-ASN and CTDL are published by Credential Engine. These vocabularies provide extensive attributes
+           with which to describe credentials, competencies or skills, organizations and other related concepts.
+           </p>
+          <table class="propertyList">
+              <thead>
+                  <tr>
+                      <th>Collection Property</th>
+                      <th>Field Name</th>
+                      <th>Data Type</th>
+                      <th>Description</th>
+                      <th>Term IRI</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>id</td>
+                      <td>ID</td>
+                      <td>URI</td>
+                      <td>Canonical URL that uniquely identifies the collection, from which more information may be retrieved.</td>
+                      <td><code>@id</code></td>
+                  </tr>
+                  <tr>
+                      <td>name</td>
+                      <td>Name</td>
+                      <td>String</td>
+                      <td>A descriptive name for the collection</td>
+                      <td><code>@id</code></td>
+                  </tr>
+                  <tr>
+                      <td>description</td>
+                      <td>Description</td>
+                      <td>URI</td>
+                      <td>Brief explanation of the scope and purpose of the collection.</td>
+                      <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:description</a></td>
+                  </tr>
+                  <tr>
+                      <td>author</td>
+                      <td>Author</td>
+                      <td>URI</td>
+                      <td>A person or organization chiefly responsible for the content of this collection</td>
+                      <td><a href="https://purl.org/ctdlasn/terms/author">ctdlasn:author</a></td>
+                  </tr>
+                  <tr>
+                      <td>containsSkill</td>
+                      <td>Contains Skill</td>
+                      <td>Array[RichSkillDescriptor]</td>
+                      <td>The skills contained within a collection. They are all at the top level with no hierarchy.</td>
+                      <td><a href="https://purl.org/ctdlasn/terms/hasTopChild">ctdlasn:hasTopChild</a></td>
+                  </tr>
+              </tbody>
+          </table>
 
-        <h3>Example Collection</h3>
-        <p></p>
-        <pre class="example" title="A Collection with one skill.">
+          <h3>Example Collection</h3>
+          <p></p>
+          <pre class="example" title="A Collection with one skill.">
 {
   "@context": "https://rsd.osmt.dev/context-v1.json",
   "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
@@ -578,8 +590,9 @@
      "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
    }]
 }
-       </pre>
-    </section>
+         </pre>
+       </div>
+      </section>
 
     <section class='informative'>
       <h2>Align a Credential to RSDs</h2>
@@ -599,18 +612,26 @@
           cases for alignment of skills that indicate an achievement level of the skill that the credential recognizes
           that will be described separately.
         </p>
+        <div class="js-tabs">
+          <ul class="js-tablist">
+           <li class="recipes-label"><span>Recipes:</span></li>
+           <li class="js-tablist__item">
+            <a href="#alignment_ob" id="label_alignment_ob" class="js-tablist__link override no-link-warnings">Open Badges</a>
+           </li>
+          </ul>
+         <div id="alignment_ob" class="js-tabcontent">
+          <h3 class="override informative notoc">Recipe: Align a Credential to an RSD with Open Badges</h3>
+          <p>
+            There are multiple approaches in different web standards communities for interoperable, portable, and
+            verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
+            asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
+            certification, or other criteria. In the below example, and Open Badges achievement definition is a BadgeClass
+            with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
+            the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
+            <code>skillName</code>.
+          </p>
 
-        <p>
-          There are multiple approaches in different web standards communities for interoperable, portable, and
-          verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
-          asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
-          certification, or other criteria. In the below example, and Open Badges achievement definition is a BadgeClass
-          with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
-          the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
-          <code>skillName</code>.
-        </p>
-
-        <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
+          <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
 {
   "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
   "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
@@ -632,27 +653,8 @@
      "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
    }]
 }
-       </pre>
-
-       <p>
-         There are additional vocabularies in use in the market to describe the concept of a Credential and the
-         underlying skills or competencies to which it aligns. The following relationships in other standards SHOULD be
-         considered the equivalent
-       </p>
-
-       <p>
-         Other open vocabularies that allow for the description of a Credential (as an example of the concept of a
-         Defined Achievement) use a so-called "three-object model" for alignment. In this model, a credential has one or
-         more alignments that each describe the target partially, but the alignment descriptor object is a separate
-         entity from the alignment target object. For the purposes of the interoperabiltiy of this alignment
-         information, some three-object approaches SHOULD be considered equivalent to the Open Badges
-         <code>alignment</code> usage in the example above.
-       </p>
-
-       <p class="note" title="TO DO">
-         Add list of specifications used by target markets and implementers that use a three-object model, and which
-
-       </p>
-    </section>
+         </pre>
+       </div>
+      </section>
 </body>
 </html>
