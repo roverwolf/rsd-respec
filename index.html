@@ -618,6 +618,9 @@
            <li class="js-tablist__item">
             <a href="#alignment_ob" id="label_alignment_ob" class="js-tablist__link override no-link-warnings">Open Badges</a>
            </li>
+           <li class="js-tablist__item">
+            <a href="#alignment_ctdlasn" id="label_alignment_ctdlasn" class="js-tablist__link override no-link-warnings">CTDL/CTDL-ASN</a>
+           </li>
           </ul>
          <div id="alignment_ob" class="js-tabcontent">
           <h3 class="override informative notoc">Recipe: Align a Credential to an RSD with Open Badges</h3>
@@ -655,6 +658,18 @@
 }
          </pre>
        </div>
+       <div id="alignment_ctdlasn" class="js-tabcontent">
+        <h3 class="override informative notoc">Recipe: Align a Credential to an RSD with CTDL/CTDL-ASN</h3>
+        <p>
+          CTDL-ASN has no classes for Credentials, so we fall back to CTDL for that data. These Credentials use CTDL's
+          alignment system to indicate alignment to a RSD expressed as a CTDL-ASN Competency.
+        </p>
+
+        <pre class="example" title="A CTDL Credential that aligns to a CDTL RSD.">
+{}
+       </pre>
+     </div>
+      </div>
       </section>
 </body>
 </html>
