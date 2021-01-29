@@ -633,6 +633,9 @@
             <a href="#alignment_ob" id="label_alignment_ob" class="js-tablist__link override no-link-warnings">Open Badges</a>
            </li>
            <li class="js-tablist__item">
+            <a href="#alignment_obcaseld" id="label_alignment_obcaseld" class="js-tablist__link override no-link-warnings">Open Badges/CASE-LD</a>
+           </li>
+           <li class="js-tablist__item">
             <a href="#alignment_ctdlasn" id="label_alignment_ctdlasn" class="js-tablist__link override no-link-warnings">CTDL/CTDL-ASN</a>
            </li>
           </ul>
@@ -672,6 +675,32 @@
 }
          </pre>
        </div>
+       <div id="alignment_obcaseld" class="js-tabcontent">
+        <h3 class="override informative notoc">Recipe: Align a Credential to a CASE-LD RSD with Open Badges</h3>
+        <p> Open Badges may align to skills expressed in several different RSD flavors with almost no change within the
+        Open Badges BadgeClass. In this exmple, the target of the alignment is published at the targetUrl in CASE-LD
+        format. The data in the local BadgeClass is almost identical to how it would appear if the target were published
+        in CTDL-ASN. Here, only properties native to the Open Badges vocabulary are shown in the example.</p>
+
+        <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD that may be expressed in CASE-LD.">
+{
+"@context": ["https://w3id.org/openbadges/v2"],
+"id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
+"type": "BadgeClass",
+"name": "Document Savvy",
+"description": "A basic skill of working on a computer is managing files. Recipients of this badge can save documents.",
+"criteria": {"narrative": "Pass the document saving performance demonstration assessment."},
+"issuer": "https://osmt.example.com/organization",
+"alignment": [{
+   "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+   "type": "RichSkillDescriptor",
+   "author": "https://osmt.example.com/organization",
+   "skillName": "Document Saving",
+   "targetName": "Document Saving"
+ }]
+}
+       </pre>
+     </div>
        <div id="alignment_ctdlasn" class="js-tabcontent">
         <h3 class="override informative notoc">Recipe: Align a Credential to an RSD with CTDL/CTDL-ASN</h3>
         <p>
@@ -680,7 +709,7 @@
         </p>
 
         <pre class="example" title="A CTDL Credential that aligns to a CDTL RSD.">
-{}
+{"TODO": true}
        </pre>
      </div>
       </div>
