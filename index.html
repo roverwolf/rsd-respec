@@ -641,15 +641,15 @@
           </ul>
          <div id="alignment_ob" class="js-tabcontent">
           <h3 class="override informative notoc">Recipe: Align a Credential to an RSD with Open Badges</h3>
-          <p>
-            There are multiple approaches in different web standards communities for interoperable, portable, and
-            verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
-            asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
-            certification, or other criteria. In the below example, and Open Badges achievement definition is a BadgeClass
-            with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
-            the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
-            <code>skillName</code>.
-          </p>
+          <p> There are multiple approaches in different web standards communities for interoperable, portable, and
+          verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
+          asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
+          certification, or other criteria. In the below example, and Open Badges achievement definition is a BadgeClass
+          with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
+          the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
+          <code>skillName</code>. When processing an example that may contain extra information such as this, the
+          relying party is encouraged to separately fetch the RSD itself from the targetUrl to ensure that a canonical
+          set of metadata is saved, based on the latest expression of the RSD author's intent. </p>
 
           <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
 {
@@ -661,7 +661,7 @@
   "criteria": {"narrative": "Pass the document saving performance demonstration assessment."},
   "issuer": "https://osmt.example.com/organization",
   "alignment": [{
-     "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+     "targetUrl": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
      "type": "RichSkillDescriptor",
      "author": "https://osmt.example.com/organization",
      "skillName": "Document Saving",
@@ -692,10 +692,7 @@
 "criteria": {"narrative": "Pass the document saving performance demonstration assessment."},
 "issuer": "https://osmt.example.com/organization",
 "alignment": [{
-   "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
-   "type": "RichSkillDescriptor",
-   "author": "https://osmt.example.com/organization",
-   "skillName": "Document Saving",
+   "targetUrl": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
    "targetName": "Document Saving"
  }]
 }
