@@ -654,7 +654,7 @@
           <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
 {
   "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
-  "id": "https://osmt.example.com/collections/35b6ff86-2974-4dc6-be17-68fef37c86cd",
+  "id": "https://badges.example.com/badges/document-saving-1",
   "type": "BadgeClass",
   "name": "Document Savvy",
   "description": "A basic skill of working on a computer is managing files. Recipients of this badge can save documents.",
@@ -708,11 +708,77 @@
           alignment system to indicate alignment to a RSD expressed as a CTDL-ASN Competency.
         </p>
 
-        <pre class="example" title="A CTDL Credential that aligns to a CDTL RSD.">
-{"TODO": true}
-       </pre>
-     </div>
-      </div>
-      </section>
+        <pre class="example" title="A CTDL Credential that aligns to a CDTL RSD."> {"TODO": true} </pre> </div> </div>
+        </section>
+        <section class='informative'>
+          <h2>Recognize Achievement of an RSD</h2>
+          <p> <em>As an educational institution, I want to
+        award a defined achievement credential to a single learner. As my organization defined this specific
+        achievement, which is tied to a particular learning experience and/or assessment, my organization is the only
+        one that may recognize that learners have achieved its criteria. Other organizations may recognize the same
+        skill by defining their own credentials that are aligned to it. </em> </p>
+
+          <p>
+
+          </p>
+          <div class="js-tabs">
+            <ul class="js-tablist">
+             <li class="recipes-label"><span>Recipes:</span></li>
+             <li class="js-tablist__item">
+              <a href="#award_ob" id="label_award_ob" class="js-tablist__link override no-link-warnings">Open Badges</a>
+             </li>
+            </ul>
+           <div id="award_ob" class="js-tabcontent">
+            <h3 class="override informative notoc">Recipe: Recognize Achievement of a Credential Aligned to an RSD with Open Badges</h3>
+            <p>
+              There are multiple approaches in different web standards communities for interoperable, portable, and
+              verifiable digital credentials, but a common pattern is an assertion awarded to an individual who the issuer
+              asserts has achieved a particular learning goal, whether that is a skill, learning objective, assessment,
+              certification, or other criteria. In the below example, there is an assertion of an Open Badges achievement definition that is a BadgeClass
+              with criteria that represents the assessment of an underlying RSD, which the credential aligns to. Note that
+              the OB vocabulary term <code>targetName</code> is used alongside the canonical RSD term
+              <code>skillName</code>.
+            </p>
+
+            <pre class="example" title="An Open Badges Assertion that Recognizes Achievment of an RSD.">
+{
+  "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
+  "recipient": {
+    "type": "email",
+    "salt": "yUv2eMsVpQ1Y2uIU",
+    "hashed": true,
+    "identity": "sha256$0fdde2f81fcb3b06e50ca0d53d6bc2f5b576d027ddc7b4200455b99ce42e08c9"
+  },
+  "id": "https://badges.example.com/assertions/document-saving-1/abc123",
+  "badge": {
+    "id": "https://badges.example.com/badges/document-saving-1",
+    "type": "BadgeClass",
+    "name": "Document Savvy",
+    "description": "A basic skill of working on a computer is managing files. Recipients of this badge can save documents.",
+    "criteria": {
+      "narrative": "Pass the document saving performance demonstration assessment."
+    },
+    "issuer": "https://badges.example.com/organization",
+    "alignment": [{
+      "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+      "type": "RichSkillDescriptor",
+      "author": "https://osmt.example.com/organization",
+      "skillName": "Document Saving",
+      "targetName": "Document Saving",
+      "skillStatement": "The learner saves copies of documents to their local machine.",
+      "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
+      "keywords": ["documents", "file operations", "computer basics"],
+      "category": "Productivity Software",
+      "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+    }]
+  },
+  "verification": {
+    "type": "hosted"
+  }
+}
+           </pre>
+         </div>
+        </div>
+        </section>
 </body>
 </html>
