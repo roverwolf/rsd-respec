@@ -54,3 +54,9 @@ table.propertyList tbody tr:nth-child(even) {
   border: 0;
 }
 .js-tabcontent[aria-hidden=true] { display: none; }
+
+
+/* Hide some boilerplate with a sledgehammer */
+#conformance p:first-of-type, #sotd p:first-of-type, section p em:first-child, #respec-pill-error {
+  display: none;
+}
