@@ -204,7 +204,7 @@
                    <tr>
                        <td>certifications</td>
                        <td>Certifications</td>
-                       <td>Array[String:URI]</td>
+                       <td>Array[Credential]</td>
                        <td>Field for associating external certifications to RSDs</td>
                        <td><a href="https://purl.org/ctdlasn/terms/alignFrom">ceasn:alignFrom</a></td>
                    </tr>
@@ -218,16 +218,9 @@
                    <tr>
                        <td>employers</td>
                        <td>Employers</td>
-                       <td>Array[String]</td>
+                       <td>Array [Employment Outcome Profile]</td>
                        <td>indicates support for a skill by specific employers who employ people who hold the skill</td>
                        <td><a href="https://purl.org/ctdl/terms/employmentOutcome">ceterms:employmentOutcome</a></td>
-                   </tr>
-                   <tr>
-                       <td>skillEmbodied</td>
-                       <td>Source Skill Embodied</td>
-                       <td>Array[String]</td>
-                       <td>indicates alignment of this skill to data sources for professional standards or keywords that do not have canonical URIs</td>
-                       <td><a href="https://purl.org/ctdlasn/terms/skillEmbodied">ceasn:skillEmbodied</a></td>
                    </tr>
                    <tr>
                      <td>ctid</td>
@@ -295,10 +288,12 @@
     "author": "https://osmt.example.com/organization",
     "skillName": "Document Saving",
     "skillStatement": "The learner saves copies of documents to their local machine.",
-    "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
+    "alignments": [{"id": "https://skillsource.example.com/base-skills/simple-compuhacking", "name": "Simple Compuhacking"}],
+    "employers": [{"name": "Acme, Inc."}],
     "keywords": ["documents", "file operations", "computer basics"],
     "category": "Productivity Software",
-    "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
+    "certifications": [{"id": "https://credentials.example.com/supersaver", "name": "DocumentAlliance SuperSaver"}],
+    "occupations": [{"codedNotation": "13-2080", "targetNodeName": "Tax Examiners, Collectors and Preparers, and Revenue Agents"}]
    }
           </pre>
          </div>
@@ -597,17 +592,22 @@
   "name": "Office Productivity Skills",
   "description": "Skills for people who work in offices, generally at desks, on office chairs, often using computers.",
   "author": "https://osmt.example.com/organization",
-  "containsSkills": [{
-     "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
-     "type": "RichSkillDescriptor",
-     "author": "https://osmt.example.com/organization",
-     "skillName": "Document Saving",
-     "skillStatement": "The learner saves copies of documents to their local machine.",
-     "alignments": ["https://skillsource.example.com/base-skills/simple-compuhacking"],
-     "keywords": ["documents", "file operations", "computer basics"],
-     "category": "Productivity Software",
-     "occupations": ["13-0000", "13-2000", "13-2010", "13-2030", "13-2040", "13-2060", "13-2080"]
-   }]
+  "containsSkills": [
+    {
+      "@context": "https://rsd.osmt.dev/context-v1.json",
+      "id": "https://osmt.example.com/skills/9cd84455-2086-4f41-bcac-6d518beeb6ac",
+      "type": "RichSkillDescriptor",
+      "author": "https://osmt.example.com/organization",
+      "skillName": "Document Saving",
+      "skillStatement": "The learner saves copies of documents to their local machine.",
+      "alignments": [{"id": "https://skillsource.example.com/base-skills/simple-compuhacking", "name": "Simple Compuhacking"}],
+      "employers": [{"name": "Acme, Inc."}],
+      "keywords": ["documents", "file operations", "computer basics"],
+      "category": "Productivity Software",
+      "certifications": [{"id": "https://credentials.example.com/supersaver", "name": "DocumentAlliance SuperSaver"}],
+      "occupations": [{"codedNotation": "13-2080", "targetNodeName": "Tax Examiners, Collectors and Preparers, and Revenue Agents"}]
+    }
+  ]
 }
          </pre>
        </div>
@@ -660,7 +660,7 @@
 
           <pre class="example" title="An Open Badges BadgeClass that aligns to an RSD.">
 {
-  "@context": ["https://w3id.org/openbadges/v2", "https://rsd.osmt.dev/context-v1.json"],
+  "@context": ["https://w3id.org/openbadges/v2"],
   "id": "https://badges.example.com/badges/document-saving-1",
   "type": "BadgeClass",
   "name": "Document Savvy",

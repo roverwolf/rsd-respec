@@ -13,12 +13,17 @@
     "category": {"@id": "ceasn:competencyCategory"},
 
     "certifications": {"@id": "ceasn:alignFrom", "@type": "@id"},
+    "codedNotation": {"@id": "ceterms:codedNotation"},
     "containsSkill": {"@id": "ceasn:hasTopChild"},
     "employers": {"@id": "ceterms:employmentOutcome"},
+    "frameworkName": {"@id": "ceterms:frameworkName"},
     "keywords": {"@id": "ceterms:keyword"},
+    "name": { "@id": "ceterms:name"},
     "occupations": {"@id": "ceterms:occupationType"},
-    "skillEmbodied": {"@id": "ceasn:skillEmbodied"},
     "skillName": {"@id": "ceasn:competencyLabel"},
-    "skillStatement": {"@id": "ceasn:competencyText"}
+    "skillStatement": {"@id": "ceasn:competencyText"},
+    "standards": {"@id": "ceasn:majorAlignment", "@type": "@id"},
+    "targetNode": {"@id": "ceterms:targetNode"},
+    "targetNodeName": {"@id": "ceterms:targetNodeName"}
   }
 }
