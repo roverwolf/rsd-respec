@@ -305,12 +305,20 @@
              without any significant modification to the JSON expressed by the various endpoints.
            </p>
 
-           <p> In order to publish an RSD using CASE, implement the <a
-             href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfitem">CFItem endpoint</a> to publish a single item
-             and implement the <a href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfdocument">CFDocument
+           <p> To publish an RSD with CASE-LD, return the data described by the CASE-LD <a
+             href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfitem">CFItem endpoint</a> from the RSD's canonical URL.
+             To express information about a framework in which a skill appears, you may also implement the <a href="https://www.imsglobal.org/spec/case/v1p0/jsonld/#cfdocument">CFDocument
              endpoint</a> to express authorship information across one or more RSDs. Terms below are defined in the <a
-             href="https://purl.imsglobal.org/spec/case/v1p0/context/imscasev1p0_context_v1p0.jsonld">CASE  JSON-LD
+             href="https://purl.imsglobal.org/spec/case/v1p0/context/imscasev1p0_context_v1p0.jsonld">CASE JSON-LD
              context</a>.
+           </p>
+
+           <p>
+             If the implementer is also implemnting the <a
+             href="https://www.imsglobal.org/sites/default/files/CASE/casev1p0/rest_binding/caseservicev1p0_restbindv1p0.html">CASE
+             1.0 REST API</a>, the canonical URL of the RSD should be the value of the <code>url</code> property in the
+             CFItem objects expressed in those REST endpoints, in order to inform REST API clients of the canonical
+             URLs.
            </p>
 
           <table class="propertyList">
