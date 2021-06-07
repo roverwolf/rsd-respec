@@ -15,6 +15,7 @@
     "certifications": {"@id": "ceasn:alignFrom", "@type": "@id"},
     "codedNotation": {"@id": "ceterms:codedNotation"},
     "containsSkill": {"@id": "ceasn:hasTopChild"},
+    "creator": {"@id": "ceasn:creator"},
     "employers": {"@id": "ceterms:employmentOutcome"},
     "frameworkName": {"@id": "ceterms:frameworkName"},
     "keywords": {"@id": "ceterms:keyword"},
